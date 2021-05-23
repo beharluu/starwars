@@ -17,12 +17,10 @@ export class HomeComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
-    console.log(event.target.innerWidth);
     this.checkSideNavStatus(event.target.innerWidth);
   }
 
   checkSideNavStatus(width: any) {
-    console.log(width);
     if ( width < 768 ) {
       this.opened = false;
     }
