@@ -1,0 +1,56 @@
+mat-sidenav-content{
+    padding: 0 20px;
+}
+
+mat-sidenav{
+    min-width: 150px;
+    height: 100vh;
+}
+
+.sidenav{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .logo{
+        width: 100%;
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 33px;
+    }
+
+    .navigate{
+        width: 100%;
+        padding: 0;
+    
+        &__link{
+            padding: 10px 20px;
+            list-style: none;
+            cursor: pointer;
+    
+            &--active{
+                background-color: darkgray;
+                color: #fff;
+            }
+        }
+    }
+
+    &__wrapper{
+        width: 100%;
+
+        &--top{
+            width: 100%;
+            padding: 10px 0;
+
+            span{
+                cursor: pointer;
+            }
+        }
+        &--content{
+            width: 100%;
+        }
+    }
+}

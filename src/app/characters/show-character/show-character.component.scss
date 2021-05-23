@@ -1,0 +1,23 @@
+
+
+.character{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .example-card{
+        max-width: 700px;
+    }
+
+    .example-header-image{
+        background-position: center;
+        background-size: cover;
+    }
+
+    &__film:hover{
+        cursor: pointer;
+        background-color: rgb(226, 226, 226);
+        transform: all linear 0.3s;
+    }
+}

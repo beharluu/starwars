@@ -1,0 +1,9 @@
+table {
+    width: 100%;
+
+    .row:hover{
+        cursor: pointer;
+        background-color: rgb(226, 226, 226);
+        transform: all linear 0.3s;
+    }
+}

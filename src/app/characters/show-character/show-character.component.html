@@ -1,0 +1,37 @@
+<div class="character" *ngIf="character">
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + character.avatar + ')'}">
+          </div>
+          <mat-card-title>{{character.name}}</mat-card-title>
+          <mat-card-subtitle>{{character.gender}}</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content>
+            <mat-list>
+                <div mat-subheader>Details</div>
+                <mat-list-item>
+                    <div mat-line> <strong>Height</strong></div>
+                    <div mat-line> {{character.height}} </div>
+    
+                    <div mat-line> <strong>Weight/Mass</strong></div>
+                    <div mat-line> {{character.mass}} </div>
+    
+                    <div mat-line> <strong>Birth Year</strong></div>
+                    <div mat-line> {{character.birthYear}} </div>
+    
+                    <div mat-line> <strong>Homeworld</strong></div>
+                    <div mat-line> {{character.homeworld}} </div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <div mat-subheader>Films</div>
+                <mat-list-item class="character__film" routerLink="/films/{{film.id}}" *ngFor="let film of character.films">
+                    <span class="material-icons"> movie </span>
+                    <div mat-line>{{film.url}}</div>
+                </mat-list-item>
+            </mat-list>
+          
+        </mat-card-content>
+
+      </mat-card>
+</div>

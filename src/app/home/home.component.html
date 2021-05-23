@@ -1,0 +1,29 @@
+<mat-sidenav-container class="sidenav" fullscreen>
+    
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+    (closed)="events.push('close!')">
+
+        <span class="logo">Logo</span>
+
+        <ul class="navigate">
+            <li class="navigate__link" [routerLink]="['/characters']" routerLinkActive="navigate__link--active">
+                <a> Characters </a>
+            </li>
+            <li class="navigate__link" [routerLink]="['/films']" routerLinkActive="navigate__link--active">
+                <a> Films </a>
+            </li>
+        </ul>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="sidenav__wrapper">
+        <div class="sidenav__wrapper--top">
+            <span class="material-icons" (click)="sidenav.toggle()">menu</span>
+        </div>
+
+        <div class="sidenav__wrapper--content">
+            <router-outlet></router-outlet>
+        </div>
+
+    </mat-sidenav-content>
+  
+</mat-sidenav-container>

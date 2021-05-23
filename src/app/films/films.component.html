@@ -1,0 +1,42 @@
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput [(ngModel)]="searchQuery" (keyup)="searchFilms()" placeholder="Ex. ium" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" (matSortChange)="sortData($event)" matSort>
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header="id"> Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header="title"> Title </th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="created">
+            <th mat-header-cell *matHeaderCellDef> Created </th>
+            <td mat-cell *matCellDef="let element"> {{element.created | date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="updated">
+            <th mat-header-cell *matHeaderCellDef> Updated </th>
+            <td mat-cell *matCellDef="let element"> {{element.updated | date}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row class="row" routerLink="/films/{{row.id}}" *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">{{isLoading ? 'Loading...' : 'No data matching the filter ' + searchQuery}}</td>
+        </tr>
+    </table>
+    
+    <mat-paginator 
+        [pageSizeOptions]="[10]"
+        (page)="onPaginateChange($event)" 
+        [length]="paginate.length"
+        showFirstLastButtons>
+    </mat-paginator>
+</div>

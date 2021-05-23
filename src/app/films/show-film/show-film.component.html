@@ -1,0 +1,32 @@
+<div class="film" *ngIf="film">
+    <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{film.title}}</mat-card-title>
+          <mat-card-subtitle> Episode {{film.episodeId}}</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content>
+            <mat-list>
+                <div mat-subheader>Details</div>
+                <mat-list-item>
+                    <div mat-line> <strong>Director</strong></div>
+                    <div mat-line> {{film.director}} </div>
+
+                    <div mat-line> <strong>Producer</strong></div>
+                    <div mat-line> {{film.producer}} </div>
+    
+                    <div mat-line> <strong>Release Date</strong></div>
+                    <div mat-line> {{film.releaseDate | date: 'long'}} </div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <div mat-subheader>Characters</div>
+                <mat-list-item class="film__character" routerLink="/characters/{{character.id}}" *ngFor="let character of film.characters">
+                    <span class="material-icons">face</span>
+                    <div mat-line>{{character?.url}}</div>
+                </mat-list-item>
+            </mat-list>
+          
+        </mat-card-content>
+
+      </mat-card>
+</div>
